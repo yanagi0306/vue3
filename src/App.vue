@@ -11,19 +11,19 @@
     </form>
 
     <template v-if="value === 'All'">
-      <All v-bind:tasks="tasks"></All>
+      <All :tasks="tasks"></All>
     </template>
     <template v-else-if="value === 'Done'">
-      <Done v-bind:tasks="tasks"></Done>
+      <Done :tasks="tasks"></Done>
     </template>
     <template v-else-if="value === 'Working'">
-      <Working v-bind:tasks="tasks"></Working>
+      <Working :tasks="tasks"></Working>
     </template>
 
     <h2>タスクの追加</h2>
     <form>
       <input type="text" id="textbox" v-model="task" />
-      <input type="button" value="追加" v-on:click="addtask" />
+      <input type="button" value="追加" @click="addtask" />
     </form>
   </div>
 </template>
@@ -32,9 +32,9 @@
 export default {
   data() {
     return {
-      task: "",
+      task: '',
       tasks: [],
-      value: "All",
+      value: 'All',
     };
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
         name: this.task,
         status: 1,
       });
-      this.task = "";
+      this.task = '';
     },
   },
 };

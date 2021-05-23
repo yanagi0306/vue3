@@ -9,12 +9,10 @@
       <tr v-for="(task, index) in tasks" :key="index">
         <td v-if="task.status % 2 != 0">{{ index }}</td>
         <td v-if="task.status % 2 != 0">{{ task.name }}</td>
-        <button v-if="task.status % 2 != 0" v-on:click="statusChange(index)">
+        <button v-if="task.status % 2 != 0" @click="statusChange(index)">
           作業中
         </button>
-        <button v-if="task.status % 2 != 0" v-on:click="del(index)">
-          削除
-        </button>
+        <button v-if="task.status % 2 != 0" @click="del(index)">削除</button>
       </tr>
     </table>
   </div>
@@ -22,7 +20,7 @@
 
 <script>
 export default {
-  props: ["tasks"],
+  props: ['tasks'],
   methods: {
     statusChange(i) {
       this.tasks[i].status++;
